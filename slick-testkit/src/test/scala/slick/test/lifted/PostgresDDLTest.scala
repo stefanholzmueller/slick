@@ -19,7 +19,7 @@ class PostgresDDLTest {
     val ts = TableQuery[TablesDefinedWithPostgresImport.TableWithDoubleColumn]
 
     val statement = ts.schema.createStatements.mkString
-    expectColumnType("DOUBLE", statement)
+    expectColumnType("DOUBLE PRECISION", statement)
   }
 
   @Test def testH2TableWithPostgresStatement: Unit = {
@@ -27,7 +27,7 @@ class PostgresDDLTest {
     val ts = TableQuery[TablesDefinedWithH2Import.TableWithDoubleColumn]
 
     val statement = ts.schema.createStatements.mkString
-    expectColumnType("DOUBLE PRECISION", statement)
+    expectColumnType("DOUBLE", statement)
   }
 
   @Test def testH2TableWithH2Statement: Unit = {
